@@ -16,3 +16,4 @@ class Logic(QMainWindow, Ui_MainWindow):
     def quit(self):
         sys.exit()
 
+
