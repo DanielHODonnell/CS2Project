@@ -31,6 +31,7 @@ class Logic(QMainWindow, Ui_MainWindow):
                 "Warning",
                 "Please enter a number"
             )
+            return
 
         selected_city = self.comboBox_city.currentText()
         tax_rates = {
