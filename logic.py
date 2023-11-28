@@ -13,7 +13,6 @@ class Logic(QMainWindow, Ui_MainWindow):
         self.help_button.clicked.connect(self.help)
 
     def calculate_tax(self):
-        global num
         input_text = self.input_num.text()
         if input_text:
             try:
@@ -70,5 +69,5 @@ class Logic(QMainWindow, Ui_MainWindow):
         QtWidgets.QMessageBox.information(
             None,
             "Help Box",
-            "(All calculations are done in dollars)\nsales tax = initial price * tax\ntotal = initial price + sales tax",
+            "(All calculations are done in dollars)\nsales tax = initial price * tax\ntotal = initial price + sales tax"
         )
