@@ -12,6 +12,7 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
+        MainWindow.resize(300, 200)
         MainWindow.setMinimumSize(QtCore.QSize(300, 200))
         MainWindow.setMaximumSize(QtCore.QSize(300, 200))
         self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
@@ -40,9 +41,9 @@ class Ui_MainWindow(object):
         self.comboBox_city.addItem("")
         self.comboBox_city.addItem("")
         self.comboBox_city.addItem("")
-        self.add_button = QtWidgets.QPushButton(parent=self.centralwidget)
-        self.add_button.setGeometry(QtCore.QRect(30, 90, 41, 23))
-        self.add_button.setObjectName("add_button")
+        self.help_button = QtWidgets.QPushButton(parent=self.centralwidget)
+        self.help_button.setGeometry(QtCore.QRect(30, 90, 41, 23))
+        self.help_button.setObjectName("help_button")
         self.submit_button = QtWidgets.QPushButton(parent=self.centralwidget)
         self.submit_button.setGeometry(QtCore.QRect(170, 90, 101, 23))
         self.submit_button.setObjectName("submit_button")
@@ -52,10 +53,6 @@ class Ui_MainWindow(object):
         self.reset_button = QtWidgets.QPushButton(parent=self.centralwidget)
         self.reset_button.setGeometry(QtCore.QRect(80, 90, 81, 23))
         self.reset_button.setObjectName("reset_button")
-        self.empty_text_box = QtWidgets.QLabel(parent=self.centralwidget)
-        self.empty_text_box.setGeometry(QtCore.QRect(30, 132, 131, 21))
-        self.empty_text_box.setText("")
-        self.empty_text_box.setObjectName("empty_text_box")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 300, 21))
@@ -70,9 +67,9 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Sale Tax Calculator"))
         self.label_title.setText(_translate("MainWindow", "Nebraska Sale Tax Calculator"))
-        self.comboBox_city.setItemText(0, _translate("MainWindow", "N/A"))
+        self.comboBox_city.setItemText(0, _translate("MainWindow", "No city"))
         self.comboBox_city.setItemText(1, _translate("MainWindow", "Omaha"))
         self.comboBox_city.setItemText(2, _translate("MainWindow", "Lincoln"))
         self.comboBox_city.setItemText(3, _translate("MainWindow", "Bellevue"))
@@ -83,10 +80,10 @@ class Ui_MainWindow(object):
         self.comboBox_city.setItemText(8, _translate("MainWindow", "Hastings"))
         self.comboBox_city.setItemText(9, _translate("MainWindow", "Columbus"))
         self.comboBox_city.setItemText(10, _translate("MainWindow", "Papillion"))
-        self.add_button.setText(_translate("MainWindow", "add"))
-        self.submit_button.setText(_translate("MainWindow", "submit"))
-        self.exit_button.setText(_translate("MainWindow", "exit"))
-        self.reset_button.setText(_translate("MainWindow", "reset"))
+        self.help_button.setText(_translate("MainWindow", "HELP"))
+        self.submit_button.setText(_translate("MainWindow", "SUBMIT"))
+        self.exit_button.setText(_translate("MainWindow", "QUIT"))
+        self.reset_button.setText(_translate("MainWindow", "RESET"))
 
 
 if __name__ == "__main__":
@@ -97,4 +94,3 @@ if __name__ == "__main__":
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec())
-
