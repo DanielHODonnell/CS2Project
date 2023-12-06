@@ -3,7 +3,13 @@ from gui import *
 
 
 class Logic(QMainWindow, Ui_MainWindow):
-    def __init__(self):
+    """
+    Main logic for the sales tax calculator application.
+    """
+    def __init__(self) -> None:
+        """
+        Initializes the application and connects button clicks to functions
+        """
         super().__init__()
         self.setupUi(self)
 
@@ -12,18 +18,35 @@ class Logic(QMainWindow, Ui_MainWindow):
         self.reset_button.clicked.connect(self.clear_input)
         self.help_button.clicked.connect(self.help)
 
-    def calculate_tax(self):
+    def calculate_tax(self) -> None:
+        """
+        Calculates sales tax based on the user's input and city selected.
+        :return: None
+        """
         input_text = self.input_num.text()
         if input_text:
             try:
                 num = float(input_text)
-            except ValueError:
+                if num < 0:
+                    raise TypeError('Please enter a positive number.')
+                elif num == 0:
+                    raise TypeError('Please enter a non-zero number.')
+
+            except ValueError as e:
                 QtWidgets.QMessageBox.warning(
                     None,
                     "Warning",
-                    "Please enter a valid number"
+                    "Please enter a valid number."
                 )
                 return
+            except TypeError as e:
+                QtWidgets.QMessageBox.warning(
+                    None,
+                    "Warning",
+                    str(e)
+                )
+                return
+
         else:
             QtWidgets.QMessageBox.warning(
                 None,
@@ -62,10 +85,18 @@ class Logic(QMainWindow, Ui_MainWindow):
                 "Please select a valid city"
             )
 
-    def clear_input(self):
+    def clear_input(self) -> None:
+        """
+        Clears user's input in text box.
+        :return: None
+        """
         self.input_num.clear()
 
-    def help(self):
+    def help(self) -> None:
+        """
+        Displays help message.
+        :return: None
+        """
         QtWidgets.QMessageBox.information(
             None,
             "Help Box",
